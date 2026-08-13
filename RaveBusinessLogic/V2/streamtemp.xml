@@ -9,63 +9,835 @@
         <Children>
           
           <!-- Baseline -->
-          <Repeater label="Baseline" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
-            <Node xpathlabel="Name">
-              <Children>
-                <Node label="Spring" xpath="." type="line" id="sp_stream_temp" symbology="stream_temp_anom_lines" />
-                <Node label="Summer" xpath="." type="line" id="su_stream_temp" symbology="stream_temp_anom_lines" />
-                <Node label="Fall" xpath="." type="line" id="fa_stream_temp" symbology="stream_temp_anom_lines" />
-                <Node label="Winter" xpath="." type="line" id="wi_stream_temp" symbology="stream_temp_anom_lines" />
-              </Children>
-            </Node>
-          </Repeater>
+          <Node label="Baseline">
+            <Children collapsed = "true">
+              <Node label="Flowlines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_2020s') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
+                <Children collapsed = "true">
+                  <Node label="Spring stream temperature,  &#176;C  (2020s)" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_lines" />
+                  <Node label="Summer stream temperature,  &#176;C  (2020s)" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_lines" />
+                  <Node label="Fall stream temperature,  &#176;C  (2020s)" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_lines" />
+                  <Node label="Winter stream temperature,  &#176;C  (2020s)" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_lines" />
+                </Children>
+              </Node>
 
-          <!-- Anomalies -->
-          <Node label="Anomalies">
-             <Children>
-               <Repeater label="Lines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies') and contains(@lyrName, 'lines')]">
-                  <Node xpathlabel="Name">
-                    <Children>
-                       <Node label="Spring" xpath="." type="line" id="sp_stream_temp" symbology="stream_temp_anom_lines" />
-                       <Node label="Summer" xpath="." type="line" id="su_stream_temp" symbology="stream_temp_anom_lines" />
-                       <Node label="Fall" xpath="." type="line" id="fa_stream_temp" symbology="stream_temp_anom_lines" />
-                       <Node label="Winter" xpath="." type="line" id="wi_stream_temp" symbology="stream_temp_anom_lines" />
-                    </Children>
-                  </Node>
-               </Repeater>
+              <Node label="Flowlines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_2010s') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
+                <Children collapsed = "true">
+                  <Node label="Spring stream temperature,  &#176;C  (2010s)" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_lines" />
+                  <Node label="Summer stream temperature,  &#176;C  (2010s)" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_lines" />
+                  <Node label="Fall stream temperature,  &#176;C  (2010s)" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_lines" />
+                  <Node label="Winter stream temperature,  &#176;C  (2010s)" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_lines" />
+                </Children>
+              </Node>
 
-                <Node label="Polygons">
-                   <Children>
-                     <Repeater label="Contributing area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
-                        <Node xpathlabel="Name">
-                           <Children>
-                              <Node label="Spring" xpath="." type="polygon" id="sp_stream_temp" symbology="stream_temp_anom_polygons" />
-                              <Node label="Summer" xpath="." type="polygon" id="su_stream_temp" symbology="stream_temp_anom_polygons" />
-                              <Node label="Fall" xpath="." type="polygon" id="fa_stream_temp" symbology="stream_temp_anom_polygons" />
-                              <Node label="Winter" xpath="." type="polygon" id="wi_stream_temp" symbology="stream_temp_anom_polygons" />
-                           </Children>
-                        </Node>
-                     </Repeater>
+              <Node label="Contributing Area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_2020s') and contains(@lyrName, '_polygons') and not(contains(@lyrName, 'anomalies')) and not(contains(@lyrName, 'HUC'))]">                
+                <Children collapsed="true">
+                  <Node label="Spring stream temperature,  &#176;C  (2020s) - contributing area" xpath="." type="polygon" id="sp_stream_temp" symbology="sp_stream_temp_polygons" />
+                  <Node label="Summer stream temperature,  &#176;C (2020s) - contributing area" xpath="." type="polygon" id="su_stream_temp" symbology="su_stream_temp_polygons" />
+                  <Node label="Fall stream temperature,  &#176;C  (2020s) - contributing area" xpath="." type="polygon" id="fa_stream_temp" symbology="fa_stream_temp_polygons" />
+                  <Node label="Winter stream temperature,  &#176;C  (2020s) - contributing area" xpath="." type="polygon" id="wi_stream_temp" symbology="wi_stream_temp_polygons" />
+                </Children>
+              </Node>
 
-                     <Repeater label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies') and contains(@lyrName, 'byHUC12_polygons')]">
-                        <Node xpathlabel="Name">
-                           <Children>
-                              <Node label="Spring" xpath="." type="polygon" id="sp_stream_temp" symbology="stream_temp_anom_polygons" />
-                              <Node label="Summer" xpath="." type="polygon" id="su_stream_temp" symbology="stream_temp_anom_polygons" />
-                              <Node label="Fall" xpath="." type="polygon" id="fa_stream_temp" symbology="stream_temp_anom_polygons" />
-                              <Node label="Winter" xpath="." type="polygon" id="wi_stream_temp" symbology="stream_temp_anom_polygons" />
-                           </Children>
-                        </Node>
-                     </Repeater>
-                   </Children>
-                </Node>
-             </Children>
+              <Node label="Contributing Area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_2010s') and contains(@lyrName, '_polygons') and not(contains(@lyrName, 'anomalies')) and not(contains(@lyrName, 'HUC'))]">                
+                <Children collapsed="true">
+                  <Node label="Spring stream temperature,  &#176;C  (2010s) - contributing area" xpath="." type="polygon" id="sp_stream_temp" symbology="sp_stream_temp_polygons" />
+                  <Node label="Summer stream temperature,  &#176;C (2010s) - contributing area" xpath="." type="polygon" id="su_stream_temp" symbology="su_stream_temp_polygons" />
+                  <Node label="Fall stream temperature,  &#176;C  (2010s) - contributing area" xpath="." type="polygon" id="fa_stream_temp" symbology="fa_stream_temp_polygons" />
+                  <Node label="Winter stream temperature,  &#176;C  (2010s) - contributing area" xpath="." type="polygon" id="wi_stream_temp" symbology="wi_stream_temp_polygons" />
+                </Children>
+              </Node>
+
+              <!-- Need to modify geopackages in Riverscapes with revised layer name -->
+              <Node label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_2020s') and contains(@lyrName, '_byHUC12_polygons') and not(contains(@lyrName, 'anomalies'))]">
+                <Children collapsed="true">
+                  <Node label="Spring stream temperature,  &#176;C  (2020s) - HUC 12" xpath="." type="polygon" id="sp_stream_temp" symbology="sp_stream_temp_polygons" />
+                  <Node label="Summer stream temperature,  &#176;C  (2020s) - HUC 12" xpath="." type="polygon" id="su_stream_temp" symbology="su_stream_temp_polygons" />
+                  <Node label="Fall stream temperature,  &#176;C  (2020s) - HUC 12" xpath="." type="polygon" id="fa_stream_temp" symbology="fa_stream_temp_polygons" />
+                  <Node label="Winter stream temperature,  &#176;C  (2020s) - HUC 12" xpath="." type="polygon" id="wi_stream_temp" symbology="wi_stream_temp_polygons" />
+                </Children>
+              </Node>
+
+              <Node label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_2010s') and contains(@lyrName, '_byHUC12_polygons') and not(contains(@lyrName, 'anomalies'))]">
+                <Children collapsed="true">
+                  <Node label="Spring stream temperature,  &#176;C  (2010s) - HUC 12" xpath="." type="polygon" id="sp_stream_temp" symbology="sp_stream_temp_polygons" />
+                  <Node label="Summer stream temperature,  &#176;C  (2010s) - HUC 12" xpath="." type="polygon" id="su_stream_temp" symbology="su_stream_temp_polygons" />
+                  <Node label="Fall stream temperature,  &#176;C  (2010s) - HUC 12" xpath="." type="polygon" id="fa_stream_temp" symbology="fa_stream_temp_polygons" />
+                  <Node label="Winter stream temperature,  &#176;C  (2010s) - HUC 12" xpath="." type="polygon" id="wi_stream_temp" symbology="wi_stream_temp_polygons" />
+                </Children>
+              </Node>
+            </Children>
           </Node>
           
-          <Node label="Log File" xpath="Datasets/File[@id='LOG']" type="file" />
+          <!-- Anomalies -->
+          <Node label="Anomalies">
+            <Children collapsed="true">
+              <Node label="Flowlines">
+                <Children collapsed="true">
+                  <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_1960s') and contains(@lyrName, 'lines')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (1960s)" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_lines" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (1960s)" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_lines" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (1960s)" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_lines" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (1960s)" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_lines" />
+                    </Children>
+                  </Node>
+                  <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_1990s') and contains(@lyrName, 'lines')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (1990s)" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_lines" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (1990s)" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_lines" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (1990s)" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_lines" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (1990s)" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_lines" />
+                    </Children>
+                  </Node>
+                  <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2000s') and contains(@lyrName, 'lines')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2000s)" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_lines" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2000s)" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_lines" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2000s)" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_lines" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2000s)" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_lines" />
+                    </Children>
+                  </Node>
+                  <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2050s') and contains(@lyrName, 'lines')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2050s)" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_lines" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2050s)" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_lines" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2050s)" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_lines" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2050s)" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_lines" />
+                    </Children>
+                  </Node>
+                  <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2080s') and contains(@lyrName, 'lines')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2080s)" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_lines" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2080s)" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_lines" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2080s)" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_lines" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2080s)" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_lines" />
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+
+              <Node label="Contributing Area">
+                <Children collapsed="true">
+                  <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_1960s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (1960s) - contributing area" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (1960s) - contributing area" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (1960s) - contributing area" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (1960s) - contributing area" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                  <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_1990s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (1990s) - contributing area" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (1990s) - contributing area" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (1990s) - contributing area" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (1990s) - contributing area" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                  <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2000s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2000s) - contributing area" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2000s) - contributing area" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2000s) - contributing area" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2000s) - contributing area" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>                  
+                  <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2050s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2050s) - contributing area" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2050s) - contributing area" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2050s) - contributing area" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2050s) - contributing area" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                  <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2080') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2080s) - contributing area" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2080s) - contributing area" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2080s) - contributing area" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2080s) - contributing area" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+
+              <Node label="12-digit HUC">
+                <Children collapsed="true">
+                  <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_1960s') and contains(@lyrName, 'byHUC12_polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (1960s) - HUC 12" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (1960s) - HUC 12" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (1960s) - HUC 12" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (1960s) - HUC 12" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                  <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_1990s') and contains(@lyrName, 'byHUC12_polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (1990s) - HUC 12" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (1990s) - HUC 12" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (1990s) - HUC 12" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (1990s) - HUC 12" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                  <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2000s') and contains(@lyrName, 'byHUC12_polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2000s) - HUC 12" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2000s) - HUC 12" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2000s) - HUC 12" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2000s) - HUC 12" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                  <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2050s') and contains(@lyrName, 'byHUC12_polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2050s) - HUC 12" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2050s) - HUC 12" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2050s) - HUC 12" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2050s) - HUC 12" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                  <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'stream_temperature_anomalies_2080') and contains(@lyrName, 'byHUC12_polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring stream temperature anomalies,  &#916;&#176;C (2080s) - HUC 12" xpath="." type="line" id="sp_stream_temp" symbology="sp_stream_temp_anom_polygons" />
+                      <Node label="Summer stream temperature anomalies,  &#916;&#176;C (2080s) - HUC 12" xpath="." type="line" id="su_stream_temp" symbology="su_stream_temp_anom_polygons" />
+                      <Node label="Fall stream temperature anomalies,  &#916;&#176;C (2080s) - HUC 12" xpath="." type="line" id="fa_stream_temp" symbology="fa_stream_temp_anom_polygons" />
+                      <Node label="Winter stream temperature anomalies,  &#916;&#176;C (2080s) - HUC 12" xpath="." type="line" id="wi_stream_temp" symbology="wi_stream_temp_anom_polygons" />
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+            </Children>
+          </Node>
 
         </Children>
       </Node>
+
+      <Node label="Covariates" xpath="Realizations/Realization">
+        <Children>
+          
+          <Node label="Air Temperature">
+            <Children collapsed = "true"> 
+             
+              <!-- Baseline -->
+              <Node label="Baseline">
+                <Children collapsed = "true">
+                  
+                  <Node label="Flowlines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring air temperature,  &#176;C (2020s)" xpath="." type="line" id="sp_air_temp" symbology="sp_air_temp_lines" />
+                      <Node label="Summer air temperature  &#176;C (2020s)" xpath="." type="line" id="su_air_temp" symbology="su_air_temp_lines" />
+                      <Node label="Fall air temperature,  &#176;C (2020s)" xpath="." type="line" id="fa_air_temp" symbology="fa_air_temp_lines" />
+                      <Node label="Winter air temperature,  &#176;C (2020s)" xpath="." type="line" id="wi_air_temp" symbology="wi_air_temp_lines" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Flowlines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring air temperature,  &#176;C (2010s)" xpath="." type="line" id="sp_air_temp" symbology="sp_air_temp_lines" />
+                      <Node label="Summer air temperature,  &#176;C (2010s)" xpath="." type="line" id="su_air_temp" symbology="su_air_temp_lines" />
+                      <Node label="Fall air temperature,  &#176;C (2010s)" xpath="." type="line" id="fa_air_temp" symbology="fa_air_temp_lines" />
+                      <Node label="Winter air temperature,  &#176;C (2010s)" xpath="." type="line" id="wi_air_temp" symbology="wi_air_temp_lines" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'anomalies')) and not(contains(@lyrName, 'HUC'))]">                
+                    <Children collapsed="true">
+                      <Node label="Spring air temperature,  &#176;C (2020s) - contributing area" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_polygons" />
+                      <Node label="Summer air temperature,  &#176;C (2020s) - contributing area" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_polygons" />
+                      <Node label="Fall air temperature,  &#176;C (2020s) - contributing area" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_polygons" />
+                      <Node label="Winter air temperature,  &#176;C (2020s) - contributing area" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'anomalies')) and not(contains(@lyrName, 'HUC'))]">                
+                    <Children collapsed="true">
+                      <Node label="Spring air temperature,  &#176;C (2010s) - contributing area" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_polygons" />
+                      <Node label="Summer air temperature,  &#176;C (2010s) - contributing area" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_polygons" />
+                      <Node label="Fall air temperature,  &#176;C (2010s) - contributing area" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_polygons" />
+                      <Node label="Winter air temperature,  &#176;C (2010s) - contributing area" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s_byHUC12') and contains(@lyrName, 'polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring air temperature,  &#176;C (2020s) - HUC 12" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_polygons" />
+                      <Node label="Summer air temperature,  &#176;C (2020s) - HUC 12" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_polygons" />
+                      <Node label="Fall air temperature,  &#176;C (2020s) - HUC 12" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_polygons" />
+                      <Node label="Winter air temperature,  &#176;C (2020s) - HUC 12" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s_byHUC12') and contains(@lyrName, 'polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring air temperature,  &#176;C (2010s) - HUC 12" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_polygons" />
+                      <Node label="Summer air temperature,  &#176;C (2010s) - HUC 12" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_polygons" />
+                      <Node label="Fall air temperature,  &#176;C (2010s) - HUC 12" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_polygons" />
+                      <Node label="Winter air temperature,  &#176;C (2010s) - HUC 12" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_polygons" />
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+
+              <!-- Anomalies -->
+              <Node label="Anomalies">
+                <Children collapsed="true">
+                  <Node label="Flowlines" >
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring air temperature anomalies,  &#916;&#176;C (1960s)" xpath="." type="line" id="sp_air_temp" symbology="sp_air_temp_anom_lines" />
+                          <Node label="Summer air temperature anomalies,  &#916;&#176;C (1960s)" xpath="." type="line" id="su_air_temp" symbology="su_air_temp_anom_lines" />
+                          <Node label="Fall air temperature anomalies,  &#916;&#176;C (1960s)" xpath="." type="line" id="fa_air_temp" symbology="fa_air_temp_anom_lines" />
+                          <Node label="Winter air temperature anomalies,  &#916;&#176;C (1960s)" xpath="." type="line" id="wi_air_temp" symbology="wi_air_temp_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring air temperature anomalies,  &#916;&#176;C (1990s)" xpath="." type="line" id="sp_air_temp" symbology="sp_air_temp_anom_lines" />
+                          <Node label="Summer air temperature anomalies,  &#916;&#176;C (1990s)" xpath="." type="line" id="su_air_temp" symbology="su_air_temp_anom_lines" />
+                          <Node label="Fall air temperature anomalies,  &#916;&#176;C (1990s)" xpath="." type="line" id="fa_air_temp" symbology="fa_air_temp_anom_lines" />
+                          <Node label="Winter air temperature anomalies,  &#916;&#176;C (1990s)" xpath="." type="line" id="wi_air_temp" symbology="wi_air_temp_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring air temperature anomalies,  &#916;&#176;C (2000s)" xpath="." type="line" id="sp_air_temp" symbology="sp_air_temp_anom_lines" />
+                          <Node label="Summer air temperature anomalies,  &#916;&#176;C (2000s)" xpath="." type="line" id="su_air_temp" symbology="su_air_temp_anom_lines" />
+                          <Node label="Fall air temperature anomalies,  &#916;&#176;C (2000s)" xpath="." type="line" id="fa_air_temp" symbology="fa_air_temp_anom_lines" />
+                          <Node label="Winter air temperature anomalies,  &#916;&#176;C (2000s)" xpath="." type="line" id="wi_air_temp" symbology="wi_air_temp_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring air temperature anomalies,  &#916;&#176;C (2050s)" xpath="." type="line" id="sp_air_temp" symbology="sp_air_temp_anom_lines" />
+                          <Node label="Summer air temperature anomalies,  &#916;&#176;C (2050s)" xpath="." type="line" id="su_air_temp" symbology="su_air_temp_anom_lines" />
+                          <Node label="Fall air temperature anomalies,  &#916;&#176;C (2050s)" xpath="." type="line" id="fa_air_temp" symbology="fa_air_temp_anom_lines" />
+                          <Node label="Winter air temperature anomalies,  &#916;&#176;C (2050s)" xpath="." type="line" id="wi_air_temp" symbology="wi_air_temp_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring air temperature anomalies,  &#916;&#176;C (2080s)" xpath="." type="line" id="sp_air_temp" symbology="sp_air_temp_anom_lines" />
+                          <Node label="Summer air temperature anomalies,  &#916;&#176;C (2080s)" xpath="." type="line" id="su_air_temp" symbology="su_air_temp_anom_lines" />
+                          <Node label="Fall air temperature anomalies,  &#916;&#176;C (2080s)" xpath="." type="line" id="fa_air_temp" symbology="fa_air_temp_anom_lines" />
+                          <Node label="Winter air temperature anomalies,  &#916;&#176;C (2080s)" xpath="." type="line" id="wi_air_temp" symbology="wi_air_temp_anom_lines" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area">
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (1960s) - contributing area" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (1960s) - contributing area" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (1960s) - contributing area" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (1960s) - contributing area" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (1990s) - contributing area" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (1990s) - contributing area" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (1990s) - contributing area" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (1990s) - contributing area" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (2000s) - contributing area" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (2000s) - contributing area" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (2000s) - contributing area" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (2000s) - contributing area" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (2050s) - contributing area" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (2050s) - contributing area" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (2050s) - contributing area" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (2050s) - contributing area" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (2080s) - contributing area" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (2080s) - contributing area" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (2080s) - contributing area" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (2080s) - contributing area" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+                  <Node label="12-digit HUC">
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children collapsed="true">
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (1960s) - HUC 12" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (1960s) - HUC 12" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (1960s) - HUC 12" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (1960s) - HUC 12" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children collapsed="true">
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (1990s) - HUC 12" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (1990s) - HUC 12" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (1990s) - HUC 12" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (1990s) - HUC 12" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children collapsed="true">
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (2000s) - HUC 12" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (2000s) - HUC 12" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (2000s) - HUC 12" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (2000s) - HUC 12" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children collapsed="true">
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (2050s) - HUC 12" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (2050s) - HUC 12" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (2050s) - HUC 12" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (2050s) - HUC 12" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children collapsed="true">
+                            <Node label="Spring air temperature anomalies,  &#916;&#176;C (2080s) - HUC 12" xpath="." type="polygon" id="sp_air_temp" symbology="sp_air_temp_anom_polygons" />
+                            <Node label="Summer air temperature anomalies,  &#916;&#176;C (2080s) - HUC 12" xpath="." type="polygon" id="su_air_temp" symbology="su_air_temp_anom_polygons" />
+                            <Node label="Fall air temperature anomalies,  &#916;&#176;C (2080s) - HUC 12" xpath="." type="polygon" id="fa_air_temp" symbology="fa_air_temp_anom_polygons" />
+                            <Node label="Winter air temperature anomalies,  &#916;&#176;C (2080s) - HUC 12" xpath="." type="polygon" id="wi_air_temp" symbology="wi_air_temp_anom_polygons" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+
+            </Children> 
+          </Node> 
+          
+          <Node label="Streamflow">
+            <Children collapsed = "true">  
+              
+              <!-- Baseline -->
+              <Node label="Baseline">
+                <Children collapsed = "true">
+                  
+                  <Node label="Flowlines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring log(streamflow,  m&#179;/s) (2020s)" xpath="." type="line" id="sp_flow_log" symbology="sp_flow_log_lines" />
+                      <Node label="Summer log(streamflow,  m&#179;/s) (2020s)" xpath="." type="line" id="su_flow_log" symbology="su_flow_log_lines" />
+                      <Node label="Fall log(streamflow,  m&#179;/s) (2020s)" xpath="." type="line" id="fa_flow_log" symbology="fa_flow_log_lines" />
+                      <Node label="Winter log(streamflow,  m&#179;/s) (2020s)" xpath="." type="line" id="wi_flow_log" symbology="wi_flow_log_lines" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Flowlines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring log(streamflow,  m&#179;/s) (2010s)" xpath="." type="line" id="sp_flow_log" symbology="sp_flow_log_lines" />
+                      <Node label="Summer log(streamflow,  m&#179;/s) (2010s)" xpath="." type="line" id="su_flow_log" symbology="su_flow_log_lines" />
+                      <Node label="Fall log(streamflow,  m&#179;/s) (2010s)" xpath="." type="line" id="fa_flow_log" symbology="fa_flow_log_lines" />
+                      <Node label="Winter log(streamflow,  m&#179;/s) (2010s)" xpath="." type="line" id="wi_flow_log" symbology="wi_flow_log_lines" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'anomalies')) and not(contains(@lyrName, 'HUC'))]">                
+                    <Children collapsed="true">
+                      <Node label="Spring log(streamflow,  m&#179;/s) (2020s) - contributing area" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_polygons" />
+                      <Node label="Summer log(streamflow,  m&#179;/s) (2020s) - contributing area" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_polygons" />
+                      <Node label="Fall log(streamflow,  m&#179;/s) (2020s) - contributing area" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_polygons" />
+                      <Node label="Winter log(streamflow,  m&#179;/s) (2020s) - contributing area" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'anomalies')) and not(contains(@lyrName, 'HUC'))]">                
+                    <Children collapsed="true">
+                      <Node label="Spring log(streamflow,  m&#179;/s) (2010s) - contributing area" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_polygons" />
+                      <Node label="Summer log(streamflow,  m&#179;/s) (2010s) - contributing area" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_polygons" />
+                      <Node label="Fall log(streamflow,  m&#179;/s) (2010s) - contributing area" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_polygons" />
+                      <Node label="Winter log(streamflow,  m&#179;/s) (2010s) - contributing area" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s_byHUC12') and contains(@lyrName, 'polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring log(streamflow,  m&#179;/s) (2020s) - HUC 12" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_polygons" />
+                      <Node label="Summer log(streamflow,  m&#179;/s) (2020s) - HUC 12" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_polygons" />
+                      <Node label="Fall log(streamflow,  m&#179;/s) (2020s) - HUC 12" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_polygons" />
+                      <Node label="Winter log(streamflow,  m&#179;/s) (2020s) - HUC 12" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s_byHUC12') and contains(@lyrName, 'polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring log(streamflow,  m&#179;/s) (2010s) - HUC 12" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_polygons" />
+                      <Node label="Summer log(streamflow,  m&#179;/s) (2010s) - HUC 12" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_polygons" />
+                      <Node label="Fall log(streamflow,  m&#179;/s) (2010s) - HUC 12" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_polygons" />
+                      <Node label="Winter log(streamflow,  m&#179;/s) (2010s) - HUC 12" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_polygons" />
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+
+              <!-- Anomalies -->
+              <Node label="Anomalies">
+                <Children collapsed="true">
+                  <Node label="Flowlines" >
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring log(streamflow,  m&#179;/s) anomalies (1960s)" xpath="." type="line" id="sp_flow_log" symbology="sp_flow_log_anom_lines" />
+                          <Node label="Summer log(streamflow,  m&#179;/s) anomalies (1960s)" xpath="." type="line" id="su_flow_log" symbology="su_flow_log_anom_lines" />
+                          <Node label="Fall log(streamflow,  m&#179;/s) anomalies (1960s)" xpath="." type="line" id="fa_flow_log" symbology="fa_flow_log_anom_lines" />
+                          <Node label="Winter log(streamflow,  m&#179;/s) anomalies (1960s)" xpath="." type="line" id="wi_flow_log" symbology="wi_flow_log_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring log(streamflow,  m&#179;/s) anomalies (1990s)" xpath="." type="line" id="sp_air_temp" symbology="sp_flow_log_anom_lines" />
+                          <Node label="Summer log(streamflow,  m&#179;/s) anomalies (1990s)" xpath="." type="line" id="su_air_temp" symbology="su_flow_log_anom_lines" />
+                          <Node label="Fall log(streamflow,  m&#179;/s) anomalies (1990s)" xpath="." type="line" id="fa_air_temp" symbology="fa_flow_log_anom_lines" />
+                          <Node label="Winter log(streamflow,  m&#179;/s) anomalies (1990s)" xpath="." type="line" id="wi_air_temp" symbology="wi_flow_log_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2000s)" xpath="." type="line" id="sp_air_temp" symbology="sp_flow_log_anom_lines" />
+                          <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2000s)" xpath="." type="line" id="su_air_temp" symbology="su_flow_log_anom_lines" />
+                          <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2000s)" xpath="." type="line" id="fa_air_temp" symbology="fa_flow_log_anom_lines" />
+                          <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2000s)" xpath="." type="line" id="wi_air_temp" symbology="wi_flow_log_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2050s)" xpath="." type="line" id="sp_flow_log" symbology="sp_flow_log_anom_lines" />
+                          <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2050s)" xpath="." type="line" id="su_flow_log" symbology="su_flow_log_anom_lines" />
+                          <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2050s)" xpath="." type="line" id="fa_flow_log" symbology="fa_flow_log_anom_lines" />
+                          <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2050s)" xpath="." type="line" id="wi_flow_log" symbology="wi_flow_log_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2080s)" xpath="." type="line" id="sp_flow_log" symbology="sp_flow_log_anom_lines" />
+                          <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2080s)" xpath="." type="line" id="su_flow_log" symbology="su_flow_log_anom_lines" />
+                          <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2080s)" xpath="." type="line" id="fa_flow_log" symbology="fa_flow_log_anom_lines" />
+                          <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2080s)" xpath="." type="line" id="wi_flow_log" symbology="wi_flow_log_anom_lines" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area">
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (1960s) - contributing area" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (1960s) - contributing area" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (1960s) - contributing area" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (1960s) - contributing area" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (1990s) - contributing area" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (1990s) - contributing area" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (1990s) - contributing area" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (1990s) - contributing area" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2000s) - contributing area" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2000s) - contributing area" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2000s) - contributing area" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2000s) - contributing area" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2050s) - contributing area" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2050s) - contributing area" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2050s) - contributing area" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2050s) - contributing area" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2080s) - contributing area" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2080s) - contributing area" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2080s) - contributing area" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2080s) - contributing area" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+
+                  <Node label="12-digit HUC">
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (1960s) - HUC 12" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (1960s) - HUC 12" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (1960s) - HUC 12" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (1960s) - HUC 12" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (1990s) - HUC 12" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (1990s) - HUC 12" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (1990s) - HUC 12" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (1990s) - HUC 12" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2000s) - HUC 12" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2000s) - HUC 12" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2000s) - HUC 12" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2000s) - HUC 12" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2050s) - HUC 12" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2050s) - HUC 12" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2050s) - HUC 12" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2050s) - HUC 12" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring log(streamflow,  m&#179;/s) anomalies (2080s) - HUC 12" xpath="." type="polygon" id="sp_flow_log" symbology="sp_flow_log_anom_polygons" />
+                            <Node label="Summer log(streamflow,  m&#179;/s) anomalies (2080s) - HUC 12" xpath="." type="polygon" id="su_flow_log" symbology="su_flow_log_anom_polygons" />
+                            <Node label="Fall log(streamflow,  m&#179;/s) anomalies (2080s) - HUC 12" xpath="." type="polygon" id="fa_flow_log" symbology="fa_flow_log_anom_polygons" />
+                            <Node label="Winter log(streamflow,  m&#179;/s) anomalies (2080s) - HUC 12" xpath="." type="polygon" id="wi_flow_log" symbology="wi_flow_log_anom_polygons" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+            </Children> 
+          </Node> 
+          
+          <Node label="Snow Water Storage">
+            <Children collapsed = "true">  
+              
+              <!-- Baseline -->
+              <Node label="Baseline">
+                <Children collapsed = "true">
+                  
+                  <Node label="Flowlines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring snow water storage,  m&#xB7;days (2020s)" xpath="." type="line" id="sp_SwS" symbology="sp_SwS_lines" />
+                      <Node label="Summer snow water storage,  m&#xB7;days (2020s)" xpath="." type="line" id="su_SwS" symbology="su_SwS_lines" />
+                      <Node label="Fall snow water storage,  m&#xB7;days (2020s)" xpath="." type="line" id="fa_SwS" symbology="fa_SwS_lines" />
+                      <Node label="Winter snow water storage,  m&#xB7;days (2020s)" xpath="." type="line" id="wi_SwS" symbology="wi_SwS_lines" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Flowlines" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s') and contains(@lyrName, '_lines') and not(contains(@lyrName, 'anomalies'))]">
+                    <Children collapsed="true">
+                      <Node label="Spring snow water storage,  m&#xB7;days (2010s)" xpath="." type="line" id="sp_SwS" symbology="sp_SwS_lines" />
+                      <Node label="Summer snow water storage,  m&#xB7;days (2010s)" xpath="." type="line" id="su_SwS" symbology="su_SwS_lines" />
+                      <Node label="Fall snow water storage,  m&#xB7;days (2010s)" xpath="." type="line" id="fa_SwS" symbology="fa_SwS_lines" />
+                      <Node label="Winter snow water storage,  m&#xB7;days (2010s)" xpath="." type="line" id="wi_SwS" symbology="wi_SwS_lines" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'anomalies')) and not(contains(@lyrName, 'HUC'))]">                
+                    <Children collapsed="true">
+                      <Node label="Spring snow water storage,  m&#xB7;days (2020s) - contributing area" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_polygons" />
+                      <Node label="Summer snow water storage,  m&#xB7;days (2020s) - contributing area" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_polygons" />
+                      <Node label="Fall snow water storage,  m&#xB7;days (2020s) - contributing area" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_polygons" />
+                      <Node label="Winter snow water storage,  m&#xB7;days (2020s) - contributing area" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'anomalies')) and not(contains(@lyrName, 'HUC'))]">                
+                    <Children collapsed="true">
+                      <Node label="Spring snow water storage,  m&#xB7;days (2010s) - contributing area" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_polygons" />
+                      <Node label="Summer snow water storage,  m&#xB7;days (2010s) - contributing area" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_polygons" />
+                      <Node label="Fall snow water storage,  m&#xB7;days (2010s) - contributing area" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_polygons" />
+                      <Node label="Winter snow water storage,  m&#xB7;days (2010s) - contributing area" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2020s_byHUC12') and contains(@lyrName, 'polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring snow water storage,  m&#xB7;days (2020s) - HUC 12" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_polygons" />
+                      <Node label="Summer snow water storage,  m&#xB7;days (2020s) - HUC 12" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_polygons" />
+                      <Node label="Fall snow water storage,  m&#xB7;days (2020s) - HUC 12" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_polygons" />
+                      <Node label="Winter snow water storage,  m&#xB7;days (2020s) - HUC 12" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_polygons" />
+                    </Children>
+                  </Node>
+
+                  <Node label="12-digit HUC" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_2010s_byHUC12') and contains(@lyrName, 'polygons')]">
+                    <Children collapsed="true">
+                      <Node label="Spring snow water storage,  m&#xB7;days (2010s) - HUC 12" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_polygons" />
+                      <Node label="Summer snow water storage,  m&#xB7;days (2010s) - HUC 12" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_polygons" />
+                      <Node label="Fall snow water storage,  m&#xB7;days (2010s) - HUC 12" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_polygons" />
+                      <Node label="Winter snow water storage,  m&#xB7;days (2010s) - HUC 12" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_polygons" />
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+
+              <!-- Anomalies -->
+              <Node label="Anomalies">
+                <Children collapsed="true">
+                  <Node label="Flowlines" >
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (1960s)" xpath="." type="line" id="sp_SwS" symbology="sp_SwS_anom_lines" />
+                          <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (1960s)" xpath="." type="line" id="su_SwS" symbology="su_SwS_anom_lines" />
+                          <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (1960s)" xpath="." type="line" id="fa_SwS" symbology="fa_SwS_anom_lines" />
+                          <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (1960s)" xpath="." type="line" id="wi_SwS" symbology="wi_SwS_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (1990s)" xpath="." type="line" id="sp_air_temp" symbology="sp_SwS_anom_lines" />
+                          <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (1990s)" xpath="." type="line" id="su_air_temp" symbology="su_SwS_anom_lines" />
+                          <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (1990s)" xpath="." type="line" id="fa_air_temp" symbology="fa_SwS_anom_lines" />
+                          <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (1990s)" xpath="." type="line" id="wi_air_temp" symbology="wi_SwS_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2000s)" xpath="." type="line" id="sp_air_temp" symbology="sp_SwS_anom_lines" />
+                          <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2000s)" xpath="." type="line" id="su_air_temp" symbology="su_SwS_anom_lines" />
+                          <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2000s)" xpath="." type="line" id="fa_air_temp" symbology="fa_SwS_anom_lines" />
+                          <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2000s)" xpath="." type="line" id="wi_air_temp" symbology="wi_SwS_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2050s)" xpath="." type="line" id="sp_SwS" symbology="sp_SwS_anom_lines" />
+                          <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2050s)" xpath="." type="line" id="su_SwS" symbology="su_SwS_anom_lines" />
+                          <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2050s)" xpath="." type="line" id="fa_SwS" symbology="fa_SwS_anom_lines" />
+                          <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2050s)" xpath="." type="line" id="wi_SwS" symbology="wi_SwS_anom_lines" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'lines')]">
+                        <Children collapsed="true">
+                          <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2080s)" xpath="." type="line" id="sp_SwS" symbology="sp_SwS_anom_lines" />
+                          <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2080s)" xpath="." type="line" id="su_SwS" symbology="su_SwS_anom_lines" />
+                          <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2080s)" xpath="." type="line" id="fa_SwS" symbology="fa_SwS_anom_lines" />
+                          <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2080s)" xpath="." type="line" id="wi_SwS" symbology="wi_SwS_anom_lines" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+
+                  <Node label="Contributing Area">
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (1960s) - contributing area" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (1960s) - contributing area" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (1960s) - contributing area" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (1960s) - contributing area" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (1990s) - contributing area" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (1990s) - contributing area" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (1990s) - contributing area" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (1990s) - contributing area" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2000s) - contributing area" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2000s) - contributing area" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2000s) - contributing area" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2000s) - contributing area" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2050s) - contributing area" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2050s) - contributing area" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2050s) - contributing area" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2050s) - contributing area" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'polygons') and not(contains(@lyrName, 'HUC'))]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2080s) - contributing area" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2080s) - contributing area" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2080s) - contributing area" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2080s) - contributing area" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+
+                  <Node label="12-digit HUC">
+                    <Children collapsed="true">
+                      <Node label="1960s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1960s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (1960s) - HUC 12" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (1960s) - HUC 12" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (1960s) - HUC 12" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (1960s) - HUC 12" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="1990s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_1990s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (1990s) - HUC 12" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (1990s) - HUC 12" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (1990s) - HUC 12" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (1990s) - HUC 12" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2000s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2000s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2000s) - HUC 12" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2000s) - HUC 12" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2000s) - HUC 12" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2000s) - HUC 12" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2050s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2050s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2050s) - HUC 12" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2050s) - HUC 12" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2050s) - HUC 12" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2050s) - HUC 12" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                      <Node label="2080s" xpath="Datasets/Geopackage[@id='OUTPUT']/Layers/Vector[contains(@lyrName, 'temporal_covariates_anomalies_2080s') and contains(@lyrName, 'byHUC12_polygons')]">
+                        <Children>
+                            <Node label="Spring snow water storage anomalies,  &#916;m&#xB7;days (2080s) - HUC 12" xpath="." type="polygon" id="sp_SwS" symbology="sp_SwS_anom_polygons" />
+                            <Node label="Summer snow water storage anomalies,  &#916;m&#xB7;days (2080s) - HUC 12" xpath="." type="polygon" id="su_SwS" symbology="su_SwS_anom_polygons" />
+                            <Node label="Fall snow water storage anomalies,  &#916;m&#xB7;days (2080s) - HUC 12" xpath="." type="polygon" id="fa_SwS" symbology="fa_SwS_anom_polygons" />
+                            <Node label="Winter snow water storage anomalies,  &#916;m&#xB7;days (2080s) - HUC 12" xpath="." type="polygon" id="wi_SwS" symbology="wi_SwS_anom_polygons" />
+                        </Children>
+                      </Node>
+                    </Children>
+                  </Node>
+                </Children>
+              </Node>
+            </Children> 
+          </Node> 
+          
+          
+          
+          
+
+        </Children>
+
+      </Node>
+
     </Children>
+  <Node label="Log File" xpath="Datasets/File[@id='LOG']" type="file" />
   </Node>
 </Project>
