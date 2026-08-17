@@ -836,8 +836,7 @@
         </Children>
 
       </Node>
-
+      <Node label="Log File" xpath="Datasets/File[@id='LOG']" type="file" />
     </Children>
-  <Node label="Log File" xpath="Datasets/File[@id='LOG']" type="file" />
   </Node>
 </Project>
